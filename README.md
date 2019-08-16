@@ -35,6 +35,8 @@ pip install bs4
 ## Deployment / 배포
 클론 해서 다운 받아가시면 됩니다.
 
+아니면 아래 [주소](https://discordapp.com/api/oauth2/authorize?client_id=611173967348236290&permissions=8&scope=bot)를 통해 봇을 추가하세요!
+
 ## Acknowledgments / 감사의 말
 
 * 다음 스포츠 링크만 됨
