@@ -13,9 +13,16 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print('-----------------------')
+    await client.change_presence(game=discord.Game(name="!설명으로 도움말", type=0))
 
 @client.event
 async def on_message(message):
+    if message.author.bot:
+        return None
+    if message.content == '!설명':
+        help_ = discord.Embed(title = '설명', description = '야구 시청 봇 설명')
+        help_.add_field(name='!야구', value='야구 중계를 불러옵니다.(다음 스포츠 야구 문자 중계 링크 필수 네이버 안됨)', inline=false)
+        await client.send_message(message.channel, embed = help_)
     if message.content == '!야구':
         await client.send_message(message.channel, '볼 야구경기의 다음 스포츠 문자중계 주소를 입력해 주세요')
         url = await client.wait_for_message(author=message.author, channel=message.channel)
@@ -89,4 +96,4 @@ async def on_message(message):
         
         
     
-client.run('NjExMTczOTY3MzQ4MjM2Mjkw.XVP-RQ.gb25lpoCef-2nVcxQzC3dwszynE')
+client.run('token')
