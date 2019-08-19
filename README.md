@@ -3,6 +3,17 @@
 ## 설명
 말 그대로 디스코드를 통해 야구 문자 중계를 볼 수 있습니다.
 
+이닝 변경 혹은 새로운 타자가 올라올때마다 점수를 보내줍니다
+(※ 현재 맨 처음 야구를 불러온 시점에 점수가 나옴 이건 어떻게 할 수 가 없습니다... 가장 최신 점수가 나온다고 생각하시면 됩니다.... 그래서 이닝 시작시에만 점수 표기로 바꾸는게 좋겠다고 생각 중입니다.)
+
+
+## 스크린샷
+(현재는 구단 로고 사진을 작게 줄였으나 야구 없는 월요일 덕분에 업데이트 못하는 중 기다려 주세요....)
+
+![스크린샷1](https://raw.githubusercontent.com/surplus-developer/baseballwatch-bot/master/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7(195).png)
+
+![스크린샷2](https://raw.githubusercontent.com/surplus-developer/baseballwatch-bot/master/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7(196).png)
+
 ## Getting Started / 어떻게 시작하나요?
 다운 받고 선행 조건을 모두 다운 받거나 만들고 모듈 설치 후 자신의 봇 코드를 집어넣어 구동 한후 !야구를 입력 후 다음 스포츠에서 야구 문자 중계 페이지 주소를 입력하면 사용됩니다.
 
