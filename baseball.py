@@ -25,6 +25,11 @@ async def on_message(message):
         help_.add_field(name='!야구', value='야구 중계를 불러옵니다.(다음 스포츠 야구 문자 중계 링크 필수 네이버 안됨)', inline=false)
         await client.send_message(message.channel, embed = help_)
         
+    # if message.content == 'test':
+    #     asf = discord.Embed(title='test', description='test')
+    #     asf.set_thumbnail(url='https://t1.daumcdn.net/cfile/tistory/99AEB8425BCC131B1E')
+    #     await client.send_message(message.channel, embed = asf)
+
     if message.content == '!야구':
         await client.send_message(message.channel, '볼 야구경기의 다음 스포츠 문자중계 주소를 입력해 주세요')
         url = await client.wait_for_message(author=message.author, channel=message.channel)
@@ -66,9 +71,9 @@ async def on_message(message):
                     else:
                         if '공격' in smstext.getText() or '타자' in smstext.getText() or '경기 종료' in smstext.getText():
                             team1 = discord.Embed(title = teamname[0][0].getText(), description = teamscore[0][0].getText())
-                            team1.set_image(url = 'http:'+teamlogo[0][0].attrs['src'])
+                            team1.set_thumbnail(url = 'http:'+teamlogo[0][0].attrs['src'])
                             team2 = discord.Embed(title = teamname[1][0].getText(), description = teamscore[1][0].getText())
-                            team2.set_image(url = 'http:'+teamlogo[1][0].attrs['src'])
+                            team2.set_thumbnail(url = 'http:'+teamlogo[1][0].attrs['src'])
                             await client.send_message(message.channel, "**" + smstext.getText() + "**")
                             await client.send_message(message.channel, embed = team1)
                             await client.send_message(message.channel, embed = team2)
@@ -77,17 +82,17 @@ async def on_message(message):
                 except IndexError:
                     if '공격' in smstext.getText() or '타자' in smstext.getText() or '경기 종료' in smstext.getText():
                         team1 = discord.Embed(title = teamname[0][0].getText(), description = teamscore[0][0].getText())
-                        team1.set_image(url = 'http:'+teamlogo[0][0].attrs['src'])
+                        team1.set_thumbnail(url = 'http:'+teamlogo[0][0].attrs['src'])
                         team2 = discord.Embed(title = teamname[1][0].getText(), description = teamscore[1][0].getText())
-                        team2.set_image(url = 'http:'+teamlogo[1][0].attrs['src'])
+                        team2.set_thumbnail(url = 'http:'+teamlogo[1][0].attrs['src'])
                         await client.send_message(message.channel, "**" + smstext.getText() + "**")
                         await client.send_message(message.channel, embed = team1)
                         await client.send_message(message.channel, embed = team2)
                     else:
                         team1 = discord.Embed(title = teamname[0][0].getText(), description = teamscore[0][0].getText())
-                        team1.set_image(url = teamlogo[0][0].attrs['src'])
+                        team1.set_thumbnail(url = teamlogo[0][0].attrs['src'])
                         team2 = discord.Embed(title = teamname[1][0].getText(), description = teamscore[1][0].getText())
-                        team2.set_image(url = teamlogo[1][0].attrs['src'])
+                        team2.set_thumbnail(url = teamlogo[1][0].attrs['src'])
                         await client.send_message(message.channel, smstext.getText())
             smsli.append(sms)
             linum+=1
