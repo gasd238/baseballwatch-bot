@@ -4,6 +4,7 @@
 말 그대로 디스코드를 통해 야구 문자 중계를 볼 수 있습니다.
 
 ## 스크린샷
+(현재는 구단 로고 사진을 작게 줄였으나 야구 없는 월요일 덕분에 업데이트 못하는 중 기다려 주세요....)
 
 ![스크린샷1](https://raw.githubusercontent.com/surplus-developer/baseballwatch-bot/master/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7(195).png)
 
