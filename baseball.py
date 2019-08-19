@@ -69,7 +69,7 @@ async def on_message(message):
                     if smstext in smsli[linum]:
                         continue
                     else:
-                        if '공격' in smstext.getText() or '타자' in smstext.getText() or '경기 종료' in smstext.getText():
+                        if '공격' in smstext.getText() or '경기 종료' in smstext.getText():
                             team1 = discord.Embed(title = teamname[0][0].getText(), description = teamscore[0][0].getText())
                             team1.set_thumbnail(url = 'http:'+teamlogo[0][0].attrs['src'])
                             team2 = discord.Embed(title = teamname[1][0].getText(), description = teamscore[1][0].getText())
@@ -80,7 +80,7 @@ async def on_message(message):
                         else:
                             await client.send_message(message.channel, smstext.getText())
                 except IndexError:
-                    if '공격' in smstext.getText() or '타자' in smstext.getText() or '경기 종료' in smstext.getText():
+                    if '공격' in smstext.getText() or '경기 종료' in smstext.getText():
                         team1 = discord.Embed(title = teamname[0][0].getText(), description = teamscore[0][0].getText())
                         team1.set_thumbnail(url = 'http:'+teamlogo[0][0].attrs['src'])
                         team2 = discord.Embed(title = teamname[1][0].getText(), description = teamscore[1][0].getText())
@@ -89,10 +89,6 @@ async def on_message(message):
                         await client.send_message(message.channel, embed = team1)
                         await client.send_message(message.channel, embed = team2)
                     else:
-                        team1 = discord.Embed(title = teamname[0][0].getText(), description = teamscore[0][0].getText())
-                        team1.set_thumbnail(url = teamlogo[0][0].attrs['src'])
-                        team2 = discord.Embed(title = teamname[1][0].getText(), description = teamscore[1][0].getText())
-                        team2.set_thumbnail(url = teamlogo[1][0].attrs['src'])
                         await client.send_message(message.channel, smstext.getText())
             smsli.append(sms)
             linum+=1
