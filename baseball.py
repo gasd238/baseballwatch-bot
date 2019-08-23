@@ -39,8 +39,8 @@ async def on_message(message):
         teamlogo = []
         linum = -1
         while True:
-            chromedriver_dir = 'C:\chromedriver.exe'
-            driver = webdriver.Chrome(chromedriver_dir)
+            driver_dir = 'C:/Users/gasd2/Desktop/baseballwatch-bot/phantomjs/bin/phantomjs.exe'
+            driver = webdriver.PhantomJS(driver_dir)
             if url.content.startswith('http'):
                 driver.get(url.content)
             else:
@@ -69,7 +69,7 @@ async def on_message(message):
                     if smstext in smsli[linum]:
                         continue
                     else:
-                        if '공격' in smstext.getText() or '경기 종료' in smstext.getText():
+                        if '공격' in smstext.getText() or '경기종료' in smstext.getText():
                             team1 = discord.Embed(title = teamname[0][0].getText(), description = teamscore[0][0].getText())
                             team1.set_thumbnail(url = 'http:'+teamlogo[0][0].attrs['src'])
                             team2 = discord.Embed(title = teamname[1][0].getText(), description = teamscore[1][0].getText())
@@ -80,7 +80,7 @@ async def on_message(message):
                         else:
                             await client.send_message(message.channel, smstext.getText())
                 except IndexError:
-                    if '공격' in smstext.getText() or '경기 종료' in smstext.getText():
+                    if '공격' in smstext.getText() or '경기종료' in smstext.getText():
                         team1 = discord.Embed(title = teamname[0][0].getText(), description = teamscore[0][0].getText())
                         team1.set_thumbnail(url = 'http:'+teamlogo[0][0].attrs['src'])
                         team2 = discord.Embed(title = teamname[1][0].getText(), description = teamscore[1][0].getText())
@@ -95,8 +95,8 @@ async def on_message(message):
             sms.reverse()
             if sms[0].getText() == '경기 종료':
                 break
-            time.sleep(20)
+            time.sleep(15)
         
         
     
-client.run('token')
+client.run('NjExMTczOTY3MzQ4MjM2Mjkw.XVaquA.xdsUn11hj6R7EqDYDhsBOsfCDyY')
