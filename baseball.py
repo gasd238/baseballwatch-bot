@@ -39,8 +39,8 @@ async def on_message(message):
         teamlogo = []
         linum = -1
         while True:
-            driver_dir = 'C:/Users/gasd2/Desktop/baseballwatch-bot/phantomjs/bin/phantomjs.exe'
-            driver = webdriver.PhantomJS(driver_dir)
+            chromedriver_dir = 'C:/Users/gasd2/Desktop/baseballwatch-bot/chromedriver.exe'
+            driver = webdriver.Chrome(chromedriver_dir)
             if url.content.startswith('http'):
                 driver.get(url.content)
             else:
@@ -54,6 +54,9 @@ async def on_message(message):
             sms = soup.find_all(class_='sms_word')
             inning = soup.find('span', class_='txt_inning')
             soups = soup.find_all('span', class_='inner_team')
+            final = soup.find('div', class_='gc_cont gc_result')
+            pitfinal = final.find('div', class_='cont_result')
+            
             
             for i in soups:
                 teamname.append(i.find_all('span', class_='txt_team'))
@@ -88,15 +91,24 @@ async def on_message(message):
                         await client.send_message(message.channel, "**" + smstext.getText() + "**")
                         await client.send_message(message.channel, embed = team1)
                         await client.send_message(message.channel, embed = team2)
+                        if '경기종료' in smstext.getText() and pitfinal != None:
+                            pitname = pitfinal.find_all('dt', class_='tit_name')
+                            pitface = pitfinal.find_all('img', class_='thumb_g')
+                            pitresult = pitfinal.find_all('span', class_='txt_gc')
+                            print(pitname[0].getText())
+                            for i in range(0, len(pitname)):
+                                pit = discord.Embed(title=pitname[i].getText(), description=pitresult[i].getText())
+                                pit.set_thumbnail(url = 'http:'+ pitface[i].attrs['src'])
+                                await client.send_message(message.channel, embed = pit)
                     else:
                         await client.send_message(message.channel, smstext.getText())
             smsli.append(sms)
             linum+=1
             sms.reverse()
-            if sms[0].getText() == '경기 종료':
+            if sms[0].getText() == '경기종료':
                 break
             time.sleep(15)
         
         
     
-client.run('NjExMTczOTY3MzQ4MjM2Mjkw.XVaquA.xdsUn11hj6R7EqDYDhsBOsfCDyY')
+client.run('token')
