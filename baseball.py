@@ -95,7 +95,6 @@ async def on_message(message):
                             pitname = pitfinal.find_all('dt', class_='tit_name')
                             pitface = pitfinal.find_all('img', class_='thumb_g')
                             pitresult = pitfinal.find_all('span', class_='txt_gc')
-                            print(pitname[0].getText())
                             for i in range(0, len(pitname)):
                                 pit = discord.Embed(title=pitname[i].getText(), description=pitresult[i].getText())
                                 pit.set_thumbnail(url = 'http:'+ pitface[i].attrs['src'])
