@@ -57,16 +57,18 @@ async def on_message(message):
             final = soup.find('div', class_='gc_cont gc_result')
             pitfinal = final.find('div', class_='cont_result')
             
-            
             for i in soups:
                 teamname.append(i.find_all('span', class_='txt_team'))
                 teamscore.append(i.find_all('span', class_='screen_out'))
                 teamlogo.append(i.find_all('img', class_='thumb_g img_logo'))
+
             sms.reverse()
+
             for i in range(len(sms)):
                 if inning.getText() in sms[i].getText():
                     sms = sms[i:]
                     break
+                    
             for smstext in sms:
                 try:
                     if smstext in smsli[linum]:
@@ -95,7 +97,6 @@ async def on_message(message):
                             pitname = pitfinal.find_all('dt', class_='tit_name')
                             pitface = pitfinal.find_all('img', class_='thumb_g')
                             pitresult = pitfinal.find_all('span', class_='txt_gc')
-                            print(pitname[0].getText())
                             for i in range(0, len(pitname)):
                                 pit = discord.Embed(title=pitname[i].getText(), description=pitresult[i].getText())
                                 pit.set_thumbnail(url = 'http:'+ pitface[i].attrs['src'])
