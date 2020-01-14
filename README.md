@@ -13,8 +13,8 @@
 (현재는 구단 로고 사진을 작게 줄였으나 야구 없는 월요일 덕분에 업데이트 못하는 중 기다려 주세요....)
 
 <div>
-  <img src='스크린샷(195).png' width='300px'>
-  <img src='스크린샷(196).png' width='300px'>
+  <img src='스크린샷(195).png' width='400px'>
+  <img src='스크린샷(196).png' width='400px'>
 </div>
 
 ## Getting Started / 어떻게 시작하나요?
