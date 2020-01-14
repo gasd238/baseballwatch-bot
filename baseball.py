@@ -4,6 +4,7 @@ import bs4
 import time
 import discord
 import datetime
+from key import *
 
 client = discord.Client()
 chromedriver_dir = 'C:/Users/User/Documents/GitHub/baseballwatch-bot/chromedriver.exe'
@@ -135,4 +136,4 @@ async def realtime():
     time.sleep(15)
         
     
-client.run('NjExMTczOTY3MzQ4MjM2Mjkw.Xh1oNg.7YE7wqHBLC6lPMSGM2DWBTh7z1s')
+client.run(key)
