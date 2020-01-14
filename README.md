@@ -12,9 +12,10 @@
 ## 스크린샷
 (현재는 구단 로고 사진을 작게 줄였으나 야구 없는 월요일 덕분에 업데이트 못하는 중 기다려 주세요....)
 
-![스크린샷1](https://raw.githubusercontent.com/surplus-developer/baseballwatch-bot/master/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7(195).png)
-
-![스크린샷2](https://raw.githubusercontent.com/surplus-developer/baseballwatch-bot/master/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7(196).png)
+<div>
+  <img src='스크린샷(195).png' width='300px'>
+  <img src='스크린샷(196).png' width='300px'>
+</div>
 
 ## Getting Started / 어떻게 시작하나요?
 다운 받고 선행 조건을 모두 다운 받거나 만들고 모듈 설치 후 자신의 봇 코드를 집어넣어 구동 한후 !야구를 입력 후 다음 스포츠에서 야구 문자 중계 페이지 주소를 입력하면 사용됩니다.
