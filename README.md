@@ -55,7 +55,7 @@ pip install bs4
 
 아니면 아래 [주소](https://discordapp.com/api/oauth2/authorize?client_id=611173967348236290&permissions=8&scope=bot)를 통해 봇을 추가하세요!
 
-## Acknowledgments / 감사의 말
+## Something I want to tell thank you / 감사의 말
 
 * 크롤링도 안되는 네이버 스포츠를 대신해 사용할 다음 스포츠를 찾아낸 나에게 감사를 표합니다.
 * 망할 뻔한 기아를 이끌어가셔서 제가 야구를 볼 이유를 만들어 주신 박흥식 감독대행님 감사합니다.
