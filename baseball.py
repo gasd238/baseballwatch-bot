@@ -3,10 +3,13 @@ from selenium import webdriver
 import bs4
 import time
 import discord
+import datetime
 
 client = discord.Client()
-chromedriver_dir = 'C:/Users/gasd2/Desktop/baseballwatch-bot/chromedriver.exe'
-driver = webdriver.Chrome(chromedriver_dir)
+chromedriver_dir = 'C:/Users/User/Documents/GitHub/baseballwatch-bot/chromedriver.exe'
+teamrank = []
+now = datetime.datetime.now()
+weekend_string = ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"]
 
 #Discord Client
 @client.event
@@ -26,11 +29,6 @@ async def on_message(message):
         help_ = discord.Embed(title = '설명', description = '야구 시청 봇 설명')
         help_.add_field(name='!야구', value='야구 중계를 불러옵니다.(다음 스포츠 야구 문자 중계 링크 필수 네이버 안됨)', inline=false)
         await client.send_message(message.channel, embed = help_)
-        
-    # if message.content == 'test':
-    #     asf = discord.Embed(title='test', description='test')
-    #     asf.set_thumbnail(url='https://t1.daumcdn.net/cfile/tistory/99AEB8425BCC131B1E')
-    #     await client.send_message(message.channel, embed = asf)
 
     if message.content == '!야구':
         await client.send_message(message.channel, '볼 야구경기의 다음 스포츠 문자중계 주소를 입력해 주세요')
@@ -38,11 +36,21 @@ async def on_message(message):
         loop.create_task(realtime())
     
     if message.content.startswith('!순위'):
-        soup = BeautifulSoup(requests.get("https://sports.news.naver.com/kbaseball/record/index.nhn?category=kbo"), 'lxml')
-        soup.find('div', class_='tbl_box')
+        req = requests.get("http://www.statiz.co.kr/main.php").text
+        soup = bs4.BeautifulSoup(req, 'lxml')
+        box = soup.find('table', class_='table table-striped')
+        wa = box.find_all('div', class_='badge')
+        for i in wa:
+            teamrank.append(i.getText())
+        await client.send_message(message.channel, '**'+str(now.year)+'년 '+str(now.month)+'월 '+str(now.day)+'일 '+ str(weekend_string[int(now.weekday())]) +' 순위' + '**')
+        for i in range(10):
+            await client.send_message(message.channel, str(i+1)+'위 '+teamrank[i])
+            time.sleep(1)
+        
 
 
 async def realtime():
+    driver = webdriver.Chrome(chromedriver_dir)
     smsli = []
     teamname = []
     teamscore = []
@@ -127,4 +135,4 @@ async def realtime():
     time.sleep(15)
         
     
-client.run('token')
+client.run('NjExMTczOTY3MzQ4MjM2Mjkw.Xh1oNg.7YE7wqHBLC6lPMSGM2DWBTh7z1s')
