@@ -114,7 +114,7 @@ async def realtime(driver, channel):
                             await channel.send(embed = team2)
                     else:
                         await channel.send(smstext.getText())
-                        time.sleep(1.5)
+                        time.sleep(2)
             except IndexError:
                 if '공격' in smstext.getText() or '경기종료' in smstext.getText() or '타자' in smstext.getText():
                     team1 = discord.Embed(title = teamname[0][0].getText(), description = teamscore[0][0].getText())
@@ -135,13 +135,13 @@ async def realtime(driver, channel):
                             await channel.send(embed = pit)
                 else:
                     await channel.send(smstext.getText())
-                    time.sleep(1.5)
+                    time.sleep(2)
         
         smsli.append(sms)
         linum+=1
         sms.reverse()
         if sms[0].getText() == '경기종료':
-            loop.stop(realtime())
+            loop.stop(realtime(driver, channels))
             break    
         time.sleep(5) 
     
